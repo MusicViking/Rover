@@ -1,10 +1,10 @@
-package eistudy;
+package rover;
 import java.util.*;
 
 public class Rover {
 	
-	int cx;
-	int cy;
+	private int initialX;
+	private int initialY;
 	
 	char direction;
 	
@@ -12,10 +12,16 @@ public class Rover {
 	final int maxY;
 	
 	ArrayList<int[]> obstacles = new ArrayList<>();
+
+	public Rover(int initialX, int initialY, char direction){
+		this.initialX = initialX;
+		this.initialY = initialY;
+		this.direction = direction;
+	}
 	
-	public Rover(int cx,int cy,char direction, int maxX,int maxY){
-		this.cx = cx;
-		this.cy = cy;
+	public Rover(int initialX, int initialY, char direction, int maxX, int maxY){
+		this.initialX = initialX;
+		this.initialY = initialY;
 		this.direction = direction;
 		this.maxX = maxX;
 		this.maxY = maxY;
@@ -57,25 +63,25 @@ public class Rover {
 			switch(direction) {
 			
 			case 'E':
-				if(!this.isObstacle(cx+1,cy)) {
-					cx+=1;
+				if(!this.isObstacle(initialX+1,initialY)) {
+					initialX+=1;
 				}
 				break;
 			
 			case 'W':
-				if(!this.isObstacle(cx-1, cy)) {
-					cy -= 1;
+				if(!this.isObstacle(initialX-1, initialY)) {
+					initialY -= 1;
 				}
 				break;
 			
 			case 'N':
-				if(!this.isObstacle(cx, cy+1)) {
-					cy += 1;
+				if(!this.isObstacle(initialX, initialY+1)) {
+					initialY += 1;
 				}
 				break;
 			case 'S':
-				if(!this.isObstacle(cx, cy-1)) {
-					cy = cy-1;
+				if(!this.isObstacle(initialX, initialY-1)) {
+					initialY = initialY-1;
 				}
 				break;
 			default:
