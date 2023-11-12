@@ -1,10 +1,12 @@
 package rover;
+import main.Grid;
 import java.util.*;
 
 public class Rover {
 	
 	private int initialX;
 	private int initialY;
+	private Grid grid;
 	
 	char direction;
 	
@@ -13,10 +15,11 @@ public class Rover {
 	
 	ArrayList<int[]> obstacles = new ArrayList<>();
 
-	public Rover(int initialX, int initialY, char direction){
+	public Rover(int initialX, int initialY, char direction, Grid grid){
 		this.initialX = initialX;
 		this.initialY = initialY;
 		this.direction = direction;
+		this.grid = grid;
 	}
 	
 	public Rover(int initialX, int initialY, char direction, int maxX, int maxY){
