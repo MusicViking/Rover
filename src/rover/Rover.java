@@ -16,15 +16,6 @@ public class Rover {
 		this.grid = grid;
 	}
 	
-	// boolean isObstacle(int x,int y) {
-	// 	for(int i=0;i<this.obstacles.size();i++) {
-	// 		if(x == obstacles.get(i)[0] && y == obstacles.get(i)[1]) {
-	// 			return true;
-	// 		}
-	// 	}
-	// 	return false;
-	// }
-	
 	public void turnLeft() {
 		this.direction = this.direction.turnLeft();
 	}
