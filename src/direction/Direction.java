@@ -1,6 +1,7 @@
 package direction;
 import main.Grid;
 import rover.Rover;
+import rover.RoverEncounteredObstacleException;
 
 public interface Direction {
 
@@ -8,7 +9,7 @@ public interface Direction {
 
     public Direction turnRight();
 
-    public void moveForward(Rover rover, Grid grid);
+    public void moveForward(Rover rover, Grid grid) throws RoverEncounteredObstacleException;
 
     public char getDirection();
 }

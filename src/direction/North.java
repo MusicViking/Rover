@@ -3,6 +3,7 @@ package direction;
 import main.Coordinate;
 import main.Grid;
 import rover.Rover;
+import rover.RoverEncounteredObstacleException;
 
 public class North implements Direction {
 
@@ -19,11 +20,12 @@ public class North implements Direction {
 	}
 
 	@Override
-	public void moveForward(Rover rover, Grid grid) {
+	public void moveForward(Rover rover, Grid grid) throws RoverEncounteredObstacleException {
 		Coordinate current = rover.getCurrentPositionCoordinate();
 		current.setX(current.getY() + 1);
 		if (grid.isObstacle(current)) {
 			current.setX(current.getY() - 1);
+			throw new RoverEncounteredObstacleException();
 		}
 	}
 
