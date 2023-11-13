@@ -28,7 +28,7 @@ public class Rover {
 	}
 	
 	public void moveForward() throws RoverOutOfGridException {
-		this.direction.moveForward(this);
+		this.direction.moveForward(this, this.grid);
 		if (this.currentPosition.getX() < 0 || this.currentPosition.getY() < 0 || this.currentPosition.getX() > grid.getEndBoundaryCoordinate().getX() || this.currentPosition.getY() > grid.getEndBoundaryCoordinate().getY()) {
 			throw new RoverOutOfGridException();
 		}

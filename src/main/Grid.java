@@ -1,10 +1,11 @@
 package main;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Grid {
 
     private Coordinate endBoundary;
-    private HashSet<Coordinate> obstacles;
+    private Set<Coordinate> obstacles;
 
     public Grid(int x, int y) {
         this.endBoundary = new Coordinate(x, y);
@@ -15,14 +16,18 @@ public class Grid {
         return this.endBoundary;
     }
 
-    // public boolean isObstacle(int x, int y) {
-    //     for (Coordinate obs : obstacles) {
-    //         if (obs.getX() == x && obs.getY() == y) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
+    public void addObstacle(Coordinate obstacle) {
+        this.obstacles.add(obstacle);
+    }
+
+    public boolean isObstacle(Coordinate point) {
+        for (Coordinate coords: this.obstacles){
+            if (coords.equals(point)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }
