@@ -1,4 +1,5 @@
 package direction;
+import rover.Rover;
 
 public interface Direction {
 
@@ -6,7 +7,7 @@ public interface Direction {
 
     public Direction turnRight();
 
-    public void moveForward();
+    public void moveForward(Rover rover);
 
     public char getDirection();
 }

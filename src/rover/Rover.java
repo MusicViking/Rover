@@ -1,33 +1,22 @@
 package rover;
 import main.Grid;
+import direction.Direction;
 import java.util.*;
 
 public class Rover {
 	
-	private int initialX;
-	private int initialY;
+	private int x;
+	private int y;
 	private Grid grid;
-	
-	char direction;
-	
-	final int maxX;
-	final int maxY;
+	private Direction direction;
 	
 	ArrayList<int[]> obstacles = new ArrayList<>();
 
-	public Rover(int initialX, int initialY, char direction, Grid grid){
-		this.initialX = initialX;
-		this.initialY = initialY;
+	public Rover(int x, int y, Direction direction, Grid grid){
+		this.x = x;
+		this.y = y;
 		this.direction = direction;
 		this.grid = grid;
-	}
-	
-	public Rover(int initialX, int initialY, char direction, int maxX, int maxY){
-		this.initialX = initialX;
-		this.initialY = initialY;
-		this.direction = direction;
-		this.maxX = maxX;
-		this.maxY = maxY;
 	}
 	
 	boolean isObstacle(int x,int y) {
@@ -39,65 +28,35 @@ public class Rover {
 		return false;
 	}
 	
-	char turn(char command) {
-		
-		Map<Character, char[]> dict = new HashMap<>();
-		dict.put('N', new char[]{'W', 'E'});
-        dict.put('W', new char[]{'S', 'N'});
-        dict.put('S', new char[]{'E', 'W'});
-        dict.put('E', new char[]{'N', 'S'});
-        
-        
-        if(command == 'L') {
-        	return dict.get(direction)[0];
-        }
-        else {
-        	return dict.get(direction)[1];
-        }
-		
-		
+	public void turnLeft() {
+		this.direction = this.direction.turnLeft();
 	}
-	
-	public void move(char command) {
-		
-		
-		if(command == 'M') {
-		
-			switch(direction) {
-			
-			case 'E':
-				if(!this.isObstacle(initialX+1,initialY)) {
-					initialX+=1;
-				}
-				break;
-			
-			case 'W':
-				if(!this.isObstacle(initialX-1, initialY)) {
-					initialY -= 1;
-				}
-				break;
-			
-			case 'N':
-				if(!this.isObstacle(initialX, initialY+1)) {
-					initialY += 1;
-				}
-				break;
-			case 'S':
-				if(!this.isObstacle(initialX, initialY-1)) {
-					initialY = initialY-1;
-				}
-				break;
-			default:
-				 System.out.println("Invalid direction");
-			}
-		}
-		
-		else {
-			direction = this.turn(command);
-		}
-	}
-	
 
+	public void turnRight() {
+		this.direction = this.direction.turnRight();
+	}
 	
+	public void moveForward() throws RoverOutOfGridException {
+		this.direction.moveForward(this);
+		if (this.x < 0 || this.y < 0 || this.x > grid.getX() || this.y > grid.getY()) {
+			throw new RoverOutOfGridException();
+		}
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+
+	public int getY() {
+		return this.y;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
 
 }
