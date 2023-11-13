@@ -22,10 +22,6 @@ public class Rover {
 	public void turnRight() {
 		this.direction = this.direction.turnRight();
 	}
-
-	public boolean isObstacle() {
-		return true;
-	}
 	
 	public void moveForward() throws RoverOutOfGridException {
 		try {
