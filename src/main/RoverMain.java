@@ -48,7 +48,7 @@ public class RoverMain {
                         rover.moveForward();
                     }
                     catch (RoverOutOfGridException e) {
-                        //
+                        break;
                     }
                     break;
                 case 'L':
