@@ -1,7 +1,6 @@
 package rover;
 import main.Grid;
 import direction.Direction;
-import java.util.*;
 
 public class Rover {
 	
@@ -9,8 +8,6 @@ public class Rover {
 	private int y;
 	private Grid grid;
 	private Direction direction;
-	
-	ArrayList<int[]> obstacles = new ArrayList<>();
 
 	public Rover(int x, int y, Direction direction, Grid grid){
 		this.x = x;
@@ -19,14 +16,14 @@ public class Rover {
 		this.grid = grid;
 	}
 	
-	boolean isObstacle(int x,int y) {
-		for(int i=0;i<this.obstacles.size();i++) {
-			if(x == obstacles.get(i)[0] && y == obstacles.get(i)[1]) {
-				return true;
-			}
-		}
-		return false;
-	}
+	// boolean isObstacle(int x,int y) {
+	// 	for(int i=0;i<this.obstacles.size();i++) {
+	// 		if(x == obstacles.get(i)[0] && y == obstacles.get(i)[1]) {
+	// 			return true;
+	// 		}
+	// 	}
+	// 	return false;
+	// }
 	
 	public void turnLeft() {
 		this.direction = this.direction.turnLeft();

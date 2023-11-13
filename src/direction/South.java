@@ -4,7 +4,7 @@ import rover.Rover;
 
 public class South implements Direction {
 
-	char c = 'S';
+	private static char c = 'S';
 	
 	@Override
 	public Direction turnRight() {
@@ -24,6 +24,6 @@ public class South implements Direction {
 
 	@Override
 	public char getDirection() {
-		return c;
+		return South.c;
 	}
 }
