@@ -1,5 +1,6 @@
 package direction;
 
+import main.Coordinate;
 import rover.Rover;
 
 public class North implements Direction {
@@ -18,7 +19,8 @@ public class North implements Direction {
 
 	@Override
 	public void moveForward(Rover rover) {
-		rover.setY(rover.getY() + 1); 
+		Coordinate current = rover.getCurrentPositionCoordinate();
+		current.setX(current.getY() + 1);
 	}
 
 	@Override
