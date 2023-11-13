@@ -24,6 +24,7 @@ public class West implements Direction {
 		Coordinate current = rover.getCurrentPositionCoordinate();
 		current.setX(current.getX() - 1);
 		if (grid.isObstacle(current)) {
+			rover.rememberObstacle(current);
 			current.setX(current.getX() + 1);
 			throw new RoverEncounteredObstacleException();
 		}

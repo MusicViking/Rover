@@ -36,4 +36,9 @@ public class Coordinate {
         return Integer.parseInt(this.getX() % Integer.MAX_VALUE + "" + this.getY() % Integer.MIN_VALUE);
     }
 
+    @Override
+    public String toString() {
+        return "(" + this.getX() + ", " + this.getY() + ")";
+    }
+
 }

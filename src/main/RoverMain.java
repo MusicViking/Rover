@@ -46,7 +46,6 @@ public class RoverMain {
                 case 'M':
                     try {
                         rover.moveForward();
-
                     }
                     catch (RoverOutOfGridException e) {
                         //
@@ -62,6 +61,8 @@ public class RoverMain {
                     break;
             }
         }
+        
+        rover.statusReport();
 
         scan.close();
     }
