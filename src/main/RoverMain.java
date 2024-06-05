@@ -37,7 +37,7 @@ public class RoverMain {
             
             String[] obstacles = scan.nextLine().split(" ");
             for (String obstacle : obstacles) {
-                String[] coords = obstacle.split(",\s?");
+                String[] coords = obstacle.split(", ?");
                 int first = Integer.parseInt(coords[0]);
                 int second = Integer.parseInt(coords[1]);
                 grid.addObstacle(new Coordinate(first, second));
