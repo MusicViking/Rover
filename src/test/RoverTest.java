@@ -1,5 +1,4 @@
 package test;
-
 import direction.Direction;
 import direction.North;
 import main.Grid;

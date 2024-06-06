@@ -12,4 +12,5 @@ public class RoverOutOfGridException extends Exception {
     public String toString() {
         return super.getMessage() + "Error Code: " + ERROR_CODE;
     }
+    
 }

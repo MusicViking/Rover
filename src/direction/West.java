@@ -1,5 +1,4 @@
 package direction;
-
 import main.Coordinate;
 import main.Grid;
 import rover.Rover;

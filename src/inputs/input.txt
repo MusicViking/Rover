@@ -1,4 +1,4 @@
 10 10
 0 0 N
-MMRMLM
+MMRMLML
 2,2 3,5

@@ -12,4 +12,5 @@ public interface Direction {
     public void moveForward(Rover rover, Grid grid) throws RoverEncounteredObstacleException;
 
     public char getDirection();
+
 }

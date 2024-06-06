@@ -41,4 +41,5 @@ public class Coordinate {
         return "(" + this.getX() + ", " + this.getY() + ")";
     }
 
+    
 }
